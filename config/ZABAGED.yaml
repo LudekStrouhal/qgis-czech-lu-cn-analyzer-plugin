@@ -6,64 +6,81 @@ buffer_layers:
     controlling_atr_name: "typsil_k"
     buffer_levels:
       - priority: "1"
-        values: ["D1", "D2", "M", "D1p", "Mp", "Mv"]
+        values: ["D1", "D2"]
+        distance: 18
+      - priority: "4"
+        values: ["M"]
         distance: 15
       - priority: "2"
-        values: ["S1", "S1v", "S1p"]
-        distance: 5.5
+        values: ["D1p", "D2p"]
+        distance: 9
       - priority: "3"
-        values: ["S2", "S3", "D2p", "S2p", "S2v", "S3p", "S3v"]
+        values: ["D1v", "D2v"]
+        distance: 9
+      - priority: "5"
+        values: ["Mp", "Mv"]
+        distance: 7.5
+      - priority: "6"
+        values: ["S1"]
+        distance: 7
+      - priority: "7"
+        values: ["S2"]
         distance: 5
-    default_buffer: 4.5
+      - priority: "8"
+        values: ["S3"]
+        distance: 4
+      - priority: "6"
+        values: ["S1v", "S1p"]
+        distance: 3.5
+      - priority: "7"
+        values: ["S2v", "S2p"]
+        distance: 2.5
+      - priority: "8"
+        values: ["S3v", "S3p"]
+        distance: 2.0
+    default_buffer: 4
 
   - input_layer_name: "ZABAGED_POLOHOPIS:Silnice_ve_výstavbě"
     controlling_atr_name: "NaN"
     default_buffer: 5.5
-
-  - input_layer_name: "ZABAGED_POLOHOPIS:Osa_letištní_dráhy" # since buffering by random int in controlling_atr is not implemented yet, default_buffer is  20 wich is mean value of all of them and most common widths are also here
-    controlling_atr_name: "sirka"
-    buffer_levels:
-      - priority: "1"
-        values: [150]
-        distance: 150
-      - priority: "2"
-        values: [100]
-        distance: 100
-      - priority: "3"
-        values: [60]
-        distance: 60
-      - priority: "4"
-        values: [40]
-        distance: 40
-      - priority: "5"
-        values: [30]
-        distance: 30
-      - priority: "6"
-        values: [40]
-        distance: 40
-    default_buffer: 20
 
   - input_layer_name: "ZABAGED_POLOHOPIS:Silnice_neevidovaná"
     controlling_atr_name: "NaN"
     default_buffer: 2.5
 
   - input_layer_name: "ZABAGED_POLOHOPIS:Ulice"
-    controlling_atr_name: "NaN"
-    default_buffer: 3
+    controlling_atr_name: "typulice_k"
+    buffer_levels:
+      - priority: "1"
+        values: ["026", "926"] # US, USm - ulice sjízdná v sídle a mimo sídlo
+        distance: 3.0
+      - priority: "2"
+        values: ["225"] # Uch - ulice typu chodník
+        distance: 2.0
+      - priority: "3"
+        values: ["025"] # UN - ulice nesjízdná v sídle
+        distance: 1.5
+      - priority: "4"
+        values: ["925"] # UNm - ulice nesjízdná mimo sídlo
+        distance: 1.0
+      - priority: "5"
+        values: ["125"] # UX - ulice neexistující v terénu
+        distance: 0.0
+    default_buffer: 2.0
 
   - input_layer_name: "ZABAGED_POLOHOPIS:Cesta"
     controlling_atr_name: "typcesty_k"
     buffer_levels:
       - priority: "1"
-        values: ["026"]
-        distance: 2.5
-      - priority: "2"
-        values: ["025"]
+        values: ["026"]  # cesta udržovaná
         distance: 2.0
       - priority: "3"
-        values: ["099"]
+        values: ["025"]  # cesta neudržovaná
         distance: 1.0
-    default_buffer: 2.0
+      - priority: "2"
+        values: ["099"]  # cesta parková a hřbitovní
+        distance: 1.25
+    default_buffer: 1.5
     
   - input_layer_name: "ZABAGED_POLOHOPIS:Liniová_vegetace"
     controlling_atr_name: "NaN"
@@ -208,21 +225,13 @@ layers:
       39: 100   # ostatní nerudy
       −1: 100   # nezadáno/neznámo
       
-  - name: "ZABAGED_POLOHOPIS:Osa_letištní_dráhy"
+  - name: "ZABAGED_POLOHOPIS:Obvod_letištní_dráhy"
     base_use_code: 22100
     controlling_attribute: "povrch_k"
     value_increments:
       N: 0     # nezpevněný
       Z: 22000 # zpevněný >> 44100
    
-
-  - name: "ZABAGED_POLOHOPIS:Orná_půda_a_ostatní_dále_nespecifikované_plochy"
-    base_use_code: 10000
-    controlling_attribute: "typ_pudy_k"
-    value_increments:
-      OR: 0    # orná půda
-      OSN: 23500   # Ostatní nespecifikované plochy
-
   - name: "ZABAGED_POLOHOPIS:Udržovaná_zeleň"
     base_use_code: 20000
     controlling_attribute: "typ_pudy_k"
