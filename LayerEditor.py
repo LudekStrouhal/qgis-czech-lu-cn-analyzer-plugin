@@ -61,16 +61,29 @@ def add_constant_atr(layer, atr_name, atr_value):
     return layer
 
 
-def dissolve_polygon(layer: QgsVectorLayer) -> QgsVectorLayer:
-    """Dissolve the input polygon layer, keeping only an ID attribute with a value of 1.
-    (for simple use cases)"""
+def dissolve_polygon(
+	layer: QgsVectorLayer,
+	separate_disjoint: bool = False
+) -> QgsVectorLayer:
+    """
+    Dissolve the input polygon layer, keeping only an ID attribute with a value of 1.
+    (for simple use cases)
 
-    # Run dissolve without retaining any specific field
+    Parameters
+    ----------
+    layer : QgsVectorLayer
+        Input polygon layer.
+    separate_disjoint : bool, optional
+        If True, disjoint geometries remain as separate features. Default is False.
+    """
+
+    # Run dissolve with no regard to any specific field
     dissolved_layer = processing.run(
         "native:dissolve",
         {
             'INPUT': layer,
-            'FIELD': [],  # No fields retained initially
+            'FIELD': [],
+	    'SEPARATE_DISJOINT': separate_disjoint,
             'OUTPUT': 'memory:'
         }
     )['OUTPUT']
