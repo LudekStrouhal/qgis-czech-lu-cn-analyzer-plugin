@@ -753,7 +753,9 @@ class LayerEditor:
                     "native:deleteholes",
                     {
                         'INPUT': cumulative_mask,
-                        'MIN_AREA': 0,
+                        'MIN_AREA': 0.02, 
+                        # treshold derived empiricaly. Less did not remove the artifacts, zero led to gaps in landuse
+                        # apparently zero == remove all inner gaps
                         'OUTPUT': QgsProcessingUtils.generateTempFilename(f'noholes_mask_{lyr.name()}.gpkg')
                     }
                 )['OUTPUT']
