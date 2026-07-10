@@ -300,7 +300,10 @@ def attribute_layer_buffer(layer: QgsVectorLayer, controlling_atr_name: str, def
         raise ValueError(f"Attribute '{controlling_atr_name}' not found in layer fields.")
 
     # Create a new memory layer to store the buffered features
-    buffer_layer = QgsVectorLayer(f"Polygon?crs={layer.crs().authid()}", f"{input_layer_name}", "memory")
+    buffer_layer = QgsVectorLayer(
+        f"MultiPolygon?crs={layer.crs().authid()}", 
+        f"{input_layer_name}", 
+        "memory")
     buffer_layer.startEditing()
     buffer_layer.dataProvider().addAttributes(layer.fields())
     buffer_layer.updateFields()
@@ -320,22 +323,42 @@ def attribute_layer_buffer(layer: QgsVectorLayer, controlling_atr_name: str, def
         elif geom.wkbType() == 2 or geom.wkbType() == 5:  # 2 = LineString, 5 = MultiLineString
             buffer = geom.buffer(buffer_distance, 2)
         else:
-            QgsMessageLog.logMessage(f"Unsupported geometry type for feature ID {feature.id()}",
-                                     level=Qgis.Warning, notifyUser=True)
+            QgsMessageLog.logMessage(
+                f"Unsupported geometry type for feature ID {feature.id()}",
+                f"wkbType={geom.wkbType()}",
+                "CzLandUseCN",
+                level=Qgis.Warning, 
+                notifyUser=True)
             continue
 
         # Create a new feature with the buffered geometry and add it to the buffer layer
         new_feature = QgsFeature()
         new_feature.setGeometry(buffer)
         new_feature.setAttributes(feature.attributes())
+        
         if not buffer_layer.addFeature(new_feature):
-            QgsMessageLog.logMessage(f"Failed to add feature ID {feature.id()} to the buffer layer.",
-                                     level=Qgis.Warning, notifyUser=True)
+            QgsMessageLog.logMessage(
+                f"Failed to add feature ID {feature.id()} to buffer layer '{input_layer_name}'.",
+                "CzLandUseCN",
+                level=Qgis.Warning,
+                notifyUser=True
+            )
 
     # Commit changes to the buffer layer and add it to the project
     if not buffer_layer.commitChanges():
-        QgsMessageLog.logMessage("Failed to commit changes to the buffer layer.",
-                                 level=Qgis.Warning, notifyUser=True)
+        QgsMessageLog.logMessage(
+            f"Failed to commit buffer layer '{input_layer_name}'.",
+            "CzLandUseCN",
+            level=Qgis.Warning,
+            notifyUser=True
+        )
+        
+        QgsMessageLog.logMessage(
+            f"Commit errors: {buffer_layer.commitErrors()}",
+            "CzLandUseCN",
+            level=Qgis.Warning
+        )
+
         return None
     else:
         return buffer_layer
@@ -346,7 +369,10 @@ def apply_simple_buffer(layer: QgsVectorLayer, buffer_distance: float) -> QgsVec
     """
 
     # Create a new memory layer to store the buffered features
-    buffer_layer = QgsVectorLayer(f"Polygon?crs={layer.crs().authid()}", f"{layer.name()}", "memory")
+    buffer_layer = QgsVectorLayer(
+        f"MultiPolygon?crs={layer.crs().authid()}", 
+        f"{layer.name()}", 
+        "memory")
     buffer_layer.startEditing()
     buffer_layer.dataProvider().addAttributes(layer.fields())
     buffer_layer.updateFields()
@@ -671,8 +697,8 @@ class LayerEditor:
 
                 clipped = QgsVectorLayer(singlepart_path, "singlepart", "ogr")
 
+            # B) Subtract higher-priority areas
             else:
-                # B) Subtract higher-priority areas
                 clipped_path = processing.run(
                     "native:difference",
                     {
