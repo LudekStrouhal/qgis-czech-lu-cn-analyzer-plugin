@@ -793,8 +793,8 @@ class LayerEditor:
                 "CzLandUseCN", level=Qgis.Info
             )
 
-        cumulative_mask.setName("DEBUG_cumulative_mask")
-        QgsProject.instance().addMapLayer(cumulative_mask)
+        # cumulative_mask.setName("DEBUG_cumulative_mask")
+        # QgsProject.instance().addMapLayer(cumulative_mask)
 
 
         # 4) Merge all non-overlapping pieces
