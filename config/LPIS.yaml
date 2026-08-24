@@ -5,24 +5,24 @@ layer_name: LPIS_DPB_UCINNE
 # base_use_code is the LandUse code for the whole layer, and numbers from values in the controlling attribute are added to base_use_code.
 layers:
   - name: "LPIS_layer"
-    base_use_code: 10000
+    base_use_code: 10000 # ~ orná půda bez dalšího určení
     controlling_attribute: "kultura"
     value_increments:
-      "chmelnice": 42110 # 52.110
-      "jiná kultura": 43110 # 53.110
-      "jiná trvalá kultura": 43110 # 53.110
-      "mimoprodukční plocha": 51100 # 61.100
-      "ovocný sad": 43110 # 53.110
-      "plocha s kontejnery": 33300 # 43.300
-      "plocha s lanýži": 43110 # 53.110
-      "plocha s víceletými produkčními plodinami": 4130 # 14.130 ~ víceleté pícniny, přímé řádky, dobré hydr. podmínky
-      "rybník": 62100 # 72.100
-      "rychle rostoucí dřeviny": 25000 # 35.000
-      "standartní orná půda": 3140  # 13.140 ~ úzkoř. plodiny v přímých řádcích s posklizňovými zbytky ve šp. hydr. podmínkách
-      "školka": 24000 # 34.000
-      "travní porost (na orné půdě)": 12200 # 22.200
-      "trvalý travní porost": 12100 # 22.100
-      "úhor": 1110  # 11.110 ~ úhor s posklizňovými zbytky ve šp. hydr. podmínkách
-      "vinice": 41110 # 51.110
-      "zalesněná půda": 21200 # 31.200
+      "chmelnice": 42001 # 52.001 ~ chmelnice na zemědělské půdě (LPIS)
+      "jiná kultura": 43001 # 53.001 ~ ovocný sad na zemědělské půdě (LPIS)
+      "jiná trvalá kultura": 43001 # 53.001 ~ ovocný sad na zemědělské půdě (LPIS)
+      "mimoprodukční plocha": 51100 # 61.100 ~ ext. smíšené porosty, rozptýlené dřeviny s travním podrostem, s převahou křovin
+      "ovocný sad": 43001 # 53.001 ~ ovocný sad na zemědělské půdě (LPIS)
+      "plocha s kontejnery": 33300 # 43.300 ~ udržovaná zeleň, roztroušená s vyšším podílem zpevněných ploch
+      "plocha s lanýži": 43001 # 53.001 ~ ovocný sad na zemědělské půdě (LPIS)
+      "plocha s víceletými produkčními plodinami": 3112 # 13.112 ~ víceleté plodiny, pícniny s přímými řádky, dobré hydr. podmínky
+      "rybník": 62100 # 72.100 ~ vodní plochy, přírodní a přírodě blízké
+      "rychle rostoucí dřeviny": 24100 # 34.100 ~ souvislé dřeviny, rychle rostoucí dřeviny, na orné půdě
+      "standardní orná půda": 2221  # 12.221 ~ úzkoř. plodiny v přímých řádcích s posklizňovými zbytky ve šp. hydr. podmínkách
+      "školka": 23100 # 33.100 ~ souvislé dřeviny, lesní školka, na orné půdě
+      "travní porost (na orné půdě)": 12400 # 22.400 ~ souvislý travní porost, intenzivní, zatravněná orná půda
+      "trvalý travní porost": 12300 # 22.300 ~ souvislý travní porost, intenzivní, trvalý porost pravidelně sečený
+      "úhor": 1111  # 11.111 ~ úhor s posklizňovými zbytky ve šp. hydr. podmínkách
+      "vinice": 41001 # 51.001 ~ vinice na zemědělské půdě (LPIS)
+      "zalesněná půda": 21400 # 31.400 ~ souvislé dřeviny, les se stromy, zalesněná orná půda
 
