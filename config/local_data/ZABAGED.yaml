@@ -94,6 +94,10 @@ buffer_layers:
         distance: 0.0
     default_buffer: 2.5
  
+  - input_layer_name: "LesniPrusek"
+    controlling_atr_name: "NaN"
+    default_buffer: 0.0
+ 
   - input_layer_name: "ZeleznicniTrat"
     controlling_atr_name: "NaN"
     default_buffer: 2.5
@@ -140,19 +144,19 @@ layers:
       "301": 23100  # 43.100 ~ sportovní areál - plocha ≥ 2 000 m2
       "302": 23100  # 43.100 ~ plavecký areál - bez omezení
       "303": 23100  # 43.100 ~ stadión - bez omezení
-      "304": 3000   # 23.000 ~ dostihový areál, parkur - bez omezení
+      "304": 3200   # 23.200 ~ dostihový areál, parkur - bez omezení
       "305": 23100  # 43.100 ~ auto-moto-cyklo areál - bez omezení
-      "306": 23100  # 43.100 ~ golfový areál
+      "306": 3100   # 23.100 ~ golfový areál
       "307": 23100  # 43.100 ~ střelnice - bez omezení
-      "308": 3000   # 23.000 ~ plochy pro SLZ
+      "308": 3100   # 23.100 ~ plochy pro SLZ
       "309": 23100  # 43.100 ~ koupaliště - bez omezení
       "310": 23100  # 43.100 ~ camping - plocha ≥ 5 000 m2
       "311": 23100  # 43.100 ~ hřiště - plocha ≥ 2 000 m2
-      "312": 34000  # 54.000 ~ chatová kolonie - plocha ≥ 10 000 m2 nebo šířka ≥ 50m a délka ≥ 200m
+      "312": 23100  # 43.100 ~ chatová kolonie - plocha ≥ 10 000 m2 nebo šířka ≥ 50m a délka ≥ 200m
       "313": 23100  # 43.100 ~ rekreační zástavba - plocha ≥ 5 000 m2
-      "314": 3000   # 23.000 ~ kynologické cvičiště - bez omezení
+      "314": 3200   # 23.200 ~ kynologické cvičiště - bez omezení
       "315": 23100  # 43.100 ~ zábavní park - bez omezení
-      "316": 34000  # 54.000 ~ zahrádkářská osada - bez omezení
+      "316": 23100  # 43.100 ~ zahrádkářská osada - bez omezení
       "401": 26300  # 46.300 ~ sklad, hangár - plocha ≥ 5 000 m2
       "402": 26300  # 46.300 ~ přístav - bez omezení
       "403": 26200  # 46.200 ~ depo - bez omezení
@@ -196,7 +200,7 @@ layers:
     value_increments:
       "001": 26200 # 46.200 ~ vodní
       "002": 26200 # 46.200 ~ jaderná
-      "003": 3000  # 23.000 ~ solární
+      "003": 3100  # 23.100 ~ solární
       "005": 26200 # 46.200 ~ větrná
       "008": 26200 # 46.200 ~ parní
       "009": 26200 # 46.200 ~ paroplynová
@@ -217,19 +221,19 @@ layers:
   #  base_use_code: 30000
   #  controlling_attribute: "druh_k"
   #  value_increments:
-  #    N: 0
-  #    J: 3200 # jehlicnaty
-  #    L: 3100 # listnaty
-  #    S: 3300 # smiseny
+  #    N: 1000 # bez dalšího určení
+  #    J: 1300 # jehličnatý, bez dalšího určení
+  #    L: 1100 # listnatý, bez dalšího určení
+  #    S: 1200 # smíšený, bez dalšího určení 
   - name: "LesniPudaSeStromyKategorizovana"
     base_use_code: 31000
     controlling_attribute: "vyska_k"
     value_increments:
       "0": 0   # 31.000 ~ bez určení
-      "1": 100 # 31.100 ~ do 2,5 m
-      "2": 110 # 31.110 ~ od 2,5 m do 8 m
-      "3": 120 # 31.120 ~ od 8 m do 20 m
-      "4": 130 # 31.130 ~ nad 20 m
+      "1": 210 # 31.210 ~ smíšené, do 2,5 m
+      "2": 220 # 31.220 ~ smíšené, od 2,5 m do 8 m
+      "3": 230 # 31.230 ~ smíšené, od 8 m do 20 m
+      "4": 240 # 31.240 ~ smíšené, nad 20 m
 
   - name: "ObvodLetistniDrahy"
     base_use_code: 42000
@@ -242,16 +246,16 @@ layers:
     base_use_code: 10000
     controlling_attribute: "typ_pudy_k"
     value_increments:
-      OR: 3140   # 13.140 ~ orná půda ~ úzkoř. plodiny v přímých řádcích s posklizňovými zbytky ve šp. hydr. podmínkách
+      OR: 0      # 10.000 ~ orná půda ~ úzkoř. plodiny v přímých řádcích s posklizňovými zbytky ve šp. hydr. podmínkách
       OSN: 50000 # 60.000 ~ ostatní dále nespecifikované plochy
 
   - name: "OvocnySadZahrada"
-    base_use_code: 53000  
+    base_use_code: 20000  
     controlling_attribute: "TYP_PUDY_K"
     value_increments:
-      OS: 100   # 53.100 ~ ovocný sad
-      OTK: 2000 # 55.000 ~ ostatní trvalá kultura
-      ZA: 1000  # 54.000 ~ zahrada
+      OS: 33000  # 53.000 ~ ovocný sad
+      OTK: 2000  # 22.000 ~ souvislý travní porost intenzivní, bez dalšího určení ~ 22.300
+      ZA: 23100  # 43.100 ~ zahrada
 
   - name: "PovrchovaTezbaLom"
     base_use_code: 44000
@@ -326,7 +330,7 @@ layers:
       "1": 200 # 72.200 ~ přehradní nádrž
       "2": 100 # 72.100 ~ rybník
       "3": 100 # 72.100 ~ antropogenní jezero
-      "4": 100 # 72.100 ~ jezero přírodního původu
+      "4": 500 # 72.500 ~ jezero přírodního původu
       "5": 100 # 72.100 ~ výhonová tůně
       "6": 100 # 72.100 ~ koupaliště
       "7": 300 # 72.300 ~ rybniční sádka
