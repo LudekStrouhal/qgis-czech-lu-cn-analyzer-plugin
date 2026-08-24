@@ -11,10 +11,6 @@ RozvalinaZricenina
 ZeleznicniTocnaPresuvna
 Heliport
 ObvodLetistniDrahy
-BazinaMocal
-Raseliniste
-SesuvPudySut
-SkalniUtvary
 Tunel
 SilniceDalnice
 SilniceNeevidovana
@@ -25,6 +21,10 @@ SilniceVeVystavbe
 Ulice
 Cesta
 LiniovaVegetace
+BazinaMocal
+Raseliniste
+SesuvPudySut
+SkalniUtvary
 LPIS_layer
 LesniPrusek
 ArealUceloveZastavby
