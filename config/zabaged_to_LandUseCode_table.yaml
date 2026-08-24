@@ -2,9 +2,9 @@ land_use:
   - keywords: [Travní, travní, Travni, travni]
     code: 20000
   - keywords: [Lesní, lesní, Lesni, lesni]
-    code: 32000 # platí pro Lesní průsek a Lesní půdu s křovinatým porostem
+    code: 32100 # platí pro Lesní průsek a Lesní půdu s křovinatým porostem
   - keywords: [Kosodřevinou, kosodřevinou, Kosodrevinou, kosodrevinou]
-    code: 33000
+    code: 32200
   - keywords: [Skalní, skalní, Skalni, skalni]
     code: 82100
   - keywords: [Budova, budova, budov, Budov]
@@ -28,9 +28,9 @@ land_use:
   - keywords: [Silnice, slinice]
     code: 42100 
   - keywords: [Chmelnice, chmelnice]
-    code: 52100
+    code: 52000
   - keywords: [Vinice, vinice]
-    code: 51100 
+    code: 51000 
   - keywords: [Rozvodna, rozvodna]
     code: 46100 
   - keywords: [Hřbitov, Hrbitov, hrbitov, hřbitov]
@@ -38,17 +38,17 @@ land_use:
   - keywords: [Skleník, sklenik, Sklenik, skleník]
     code: 41000
   - keywords: [Bažina, bazina, Bazina, bažina]
-    code: 74100
+    code: 73000
   - keywords: [liniova, Liniova, Liniová, liniová]
     code: 61200   
   - keywords: [raseliniste, rašeliniště, Raseliniste, Rašeliniště]
-    code: 74200   
+    code: 74000   
   - keywords: [precerpavaci, přečerpávací, Precerpavaci, Přečerpávací]
     code: 46200   
   - keywords: [Sidlech, sidlech, sídlech, Sídlech]
     code: 46300
   - keywords: [Letiste, letiste, letiště, Letiště]
-    code: 23000
+    code: 23100
   - keywords: [sesuv, Sesuv]
     code: 82200
   - keywords: [Vlečka, vlecka, vlečka, Vlecka]
