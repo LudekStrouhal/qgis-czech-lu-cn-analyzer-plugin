@@ -20,7 +20,7 @@ layers:
       "plocha s víceletými produkčními plodinami": 3112 # 13.112 ~ víceleté plodiny, pícniny s přímými řádky, dobré hydr. podmínky
       "rybník": 62100 # 72.100 ~ vodní plochy, přírodní a přírodě blízké
       "rychle rostoucí dřeviny": 24100 # 34.100 ~ souvislé dřeviny, rychle rostoucí dřeviny, na orné půdě
-      "standardní orná půda": 2221  # 12.221 ~ úzkoř. plodiny v přímých řádcích s posklizňovými zbytky ve šp. hydr. podmínkách
+      "standardní orná půda": 2241  # 12.241 ~ úzkoř. plodiny ve vrstevnicových řádcích s posklizňovými zbytky ve šp. hydr. podmínkách
       "školka": 23100 # 33.100 ~ souvislé dřeviny, lesní školka, na orné půdě
       "travní porost (na orné půdě)": 12400 # 22.400 ~ souvislý travní porost, intenzivní, zatravněná orná půda
       "trvalý travní porost": 12300 # 22.300 ~ souvislý travní porost, intenzivní, trvalý porost pravidelně sečený
